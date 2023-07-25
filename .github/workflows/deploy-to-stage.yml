@@ -1,0 +1,25 @@
+name: Deploy to stage
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  ftp-deploy:
+    name: Deploy to Stage
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Deploy
+      uses: easingthemes/ssh-deploy@main
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_DEV_SITE_KEY }}
+        ARGS: "-rlgoDzvc -i --delete"
+        SOURCE: "/wp-content/themes/onco/"
+        REMOTE_HOST: ${{ secrets.SSH_DEV_SITE_SERVER }}
+        REMOTE_USER: ${{ secrets.SSH_DEV_SITE_USER }}
+        TARGET: "/data/www/dev.fgonko/wp-content/themes/onco/"
