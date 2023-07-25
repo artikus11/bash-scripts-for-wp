@@ -1,9 +1,25 @@
-# Art Elements
+# Different bash scripts for the site
 
-Добавление элементов на хуки.
+## backup-limit-5.sh
 
-## Changelog
+Создание бекапа БД 
 
+## image-optimize.sh
 
-### = 1.0.0 =
-* Релиз
+Оптимизация картинок
+
+## run-imports.sh
+
+Запуск нескольких импортов для WP All Import 
+
+## run-imports_cycle.sh
+
+Последовательный запуск нескольких импортов для WP All Import 
+
+## surge-flush-cache.sh
+
+Сброс кеша для плагина Surge
+
+## wp_remove_attachment_detach.sh
+
+Массовое удаление всех не прикрепленных изображений
